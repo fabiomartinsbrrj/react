@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import   { connect } from 'react-redux'
 
 class Field extends Component {
     constructor(props) {
@@ -16,11 +17,20 @@ class Field extends Component {
         return (
             <div>
                 <label>{this.state.value}</label><br/>
-                <input   
+                <input   onChange={this.handleChange} 
                     value={this.state.value} />
             </div>
         )
     }
 }
 
-export default Field
+
+function mapStateToProps (state) {
+    return {
+        value : state.field.value
+    }
+}
+
+
+export default connect(mapStateToProps)(Field) 
+//design pattern decorator

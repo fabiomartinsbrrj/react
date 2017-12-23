@@ -3,3 +3,5 @@ npm i --save-dev react@15.4.2 react-dom@15.4.2 babel-core@6.2.1 babel-loader@6.2
 criar o webpack.config.js
 
 npm run dev
+
+https://css-tricks.com/learning-react-redux/

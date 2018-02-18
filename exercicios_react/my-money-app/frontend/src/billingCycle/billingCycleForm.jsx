@@ -10,29 +10,21 @@ class BillingCycleForm extends Component {
     }
 
     render() {
-        const { handleSubmit } = this.props
+        const { handleSubmit } = this.props //decorei com redux-form consigo pegar essa propriedade
+
         return (
 
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={LabelAndInput} readOnly={readOnly}
+                    <Field name='name' component='input' /* readOnly={readOnly} */
                         label='Nome' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='month' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='month' component='input' type='number' /* readOnly={readOnly} */
                         label='Mês' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='year' component='input' type='number' /* readOnly={readOnly} */
                         label='Ano' cols='12 4' placeholder='Informe o ano' />
-                    <Summary credit={sumOfCredits} debt={sumOfDebts} />
-                    <ItemList cols='12 6' list={credits} readOnly={readOnly}
-                        field='credits' legend='Créditos' />
-                    <ItemList cols='12 6' list={debts} readOnly={readOnly}
-                        field='debts' legend='Débitos' showStatus={true} />
                 </div>
                 <div className='box-footer'>
-                    <button type='submit' className={`btn btn-${this.props.submitClass}`}>
-                        {this.props.submitLabel}
-                    </button>
-                    <button type='button' className='btn btn-default'
-                        onClick={this.props.init}>Cancelar</button>
+                    <button type='submit' className='btn btn-primary'>Submit</button>
                 </div>
             </form>
 

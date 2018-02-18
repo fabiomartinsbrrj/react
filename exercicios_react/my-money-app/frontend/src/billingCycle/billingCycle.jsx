@@ -3,20 +3,20 @@ import React, {Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import Content from '../common/template/content'
 import ContentHeader from '../common/template/contentHear'
-
+import Content from '../common/template/content'
 import Tabs from '../common/tab/tabs'
 import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
 
+import { selectTab, showTabs } from '../common/tab/tabActions'
+import { create } from './billingCycleAction'
+
 import List from './billingCycleList'
 import Form from './billingCycleForm' 
 
-import { selectTab, showTabs } from '../common/tab/tabActions'
-import { create } from './bindActionCreators'
 
 class BillingCycle extends Component {
 
@@ -56,5 +56,8 @@ class BillingCycle extends Component {
 
 }
 
-const mapDispacthToProps = dispatch => bindActionCreators({selectTab, showTabs, create}, dispatch) 
+const mapDispacthToProps = dispatch => bindActionCreators({
+        selectTab, showTabs, create
+    }, dispatch)
+
 export default connect(null,  mapDispacthToProps)(BillingCycle)

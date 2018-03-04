@@ -6,6 +6,8 @@ import {connect} from 'react-redux'
 
 import labelAndInput from '../common/form/labelAndInput'
 
+import {init} from './billingCycleAction'
+
 class BillingCycleForm extends Component {
 
     componentWillMount () {
@@ -27,6 +29,9 @@ class BillingCycleForm extends Component {
                 </div>
                 <div className='box-footer'>
                     <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button type='button' className='btn btn-default' 
+                        onClick={this.props.init}
+                        >Cancelar</button>
                 </div>
             </form>
 
@@ -35,5 +40,6 @@ class BillingCycleForm extends Component {
  
 }
  
-
-export default   reduxForm({form: 'billingCycleForm'})(BillingCycleForm)
+BillingCycleForm =  reduxForm({form: 'billingCycleForm', destroyOnUnmount:false })(BillingCycleForm) //decoro com redux-form
+const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch) //decoro novamente com os metodos novos
+export default connect(null, mapDispatchToProps)(BillingCycleForm)

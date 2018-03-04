@@ -5,3 +5,5 @@ criar o webpack.config.js
 npm run dev
 
 https://css-tricks.com/learning-react-redux/
+
+my-money-app : finished data entry

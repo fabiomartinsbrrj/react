@@ -4,6 +4,8 @@ import { reduxForm, Field    } from 'redux-form'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
+import labelAndInput from '../common/form/labelAndInput'
+
 class BillingCycleForm extends Component {
 
     componentWillMount () {
@@ -16,11 +18,11 @@ class BillingCycleForm extends Component {
 
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component='input' /* readOnly={readOnly} */
+                    <Field name='name' component={labelAndInput} /* readOnly={readOnly} */
                         label='Nome' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='month' component='input' type='number' /* readOnly={readOnly} */
+                    <Field name='month' component={labelAndInput} type='number' /* readOnly={readOnly} */
                         label='Mês' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year' component='input' type='number' /* readOnly={readOnly} */
+                    <Field name='year' component={labelAndInput} type='number' /* readOnly={readOnly} */
                         label='Ano' cols='12 4' placeholder='Informe o ano' />
                 </div>
                 <div className='box-footer'>

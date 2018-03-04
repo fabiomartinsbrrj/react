@@ -26,6 +26,10 @@ export function create(values) {
         return submit(values, 'put')
     }
 
+    export function remove(values) {
+        return submit(values, 'delete')
+        }
+
 function submit(values, method) {
     return dispatch => {
         
@@ -43,11 +47,22 @@ function submit(values, method) {
     }
 } 
 
-export function showUpdate(billingCycle) {
+export function showUpdate(billingCycle) {//FIXME refatorar
     return [
 
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+
+    ]
+
+}
+
+export function showDelete(billingCycle) {//FIXME refatorar
+    return [
+
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
         initialize('billingCycleForm', billingCycle)
 
     ]

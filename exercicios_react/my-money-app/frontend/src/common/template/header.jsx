@@ -1,6 +1,6 @@
 //componente vou criar um componente funcional do react
 import React from 'react' 
-
+import Navbar from './navBar'
 export default props => (
     <header className="main-header">
         <a href='/#/' className="logo">
@@ -13,6 +13,7 @@ export default props => (
 
         <nav className='navbar navbar-static-top'>
             <a href className='sidebar-toggle' data-toggle='offcanvas'></a>
+            <Navbar />
         </nav>
 
     </header>

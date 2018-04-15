@@ -17,11 +17,11 @@ const sendErrorsFromDB = (res, dbErrors) => {
 }
 
 
-const login =  (req, res, next) => {
+const login =  (req, res, next) => { 
 
     const email = req.body.email || ''
     const password = req.body.password || ''
-
+ 
     User.findOne( {email}, (err, user) => {
 
         if (err) {
@@ -29,7 +29,7 @@ const login =  (req, res, next) => {
         } else if (user && bcrypt.compareSync( password, user.password)) {
 
             const token = jwt.sign(user, env.authSecret, {
-                expiresIn : '1 day'
+                expiresIn: "1 day"
             })
 
             const {name, email} = user
@@ -37,7 +37,7 @@ const login =  (req, res, next) => {
 
         } else {
             return res.status(400).json( {errors: ['Usuário/Senha inválidos']})
-        }
+        } 
 
     } )
 
@@ -51,8 +51,8 @@ const validateToken = (req, res, next) => {
         return res.status(200).send({valid: !err})
     })
 }
-
-const signup = (req, res, mext) => {
+ 
+const signup = (req, res, next) => {
     const name = req.body.name || ''
     const email = req.body.email || ''
     const password = req.body.password
@@ -89,8 +89,8 @@ const signup = (req, res, mext) => {
                     return sendErrorsFromDB(res, err)
                 } else {
                     login(req,res,next)
-                }
-            })
+                } 
+            }) 
         }
     })
 
